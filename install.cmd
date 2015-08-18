@@ -17,4 +17,22 @@ reg add HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.%_pext%\DefaultIcon /f /d %_ppath%a
 reg add HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.%_pext%\shell\open\command /f /d "%_ppath%app.exe \"%%1%%\""
 reg add HKEY_LOCAL_MACHINE\SOFTWARE\Classes\%_pname%.%_pext%\shell\open\command /f /d "%_ppath%app.exe \"%%1%%\""
 
+@echo off
+pushd %~dp0%
+
+set _command=%_ppath%data\bin\node.exe --harmony %_ppath%data\app.js
+set _search=^<value^>^</value^>
+
+SETLOCAL=ENABLEDELAYEDEXPANSION
+
+rename app.exe.config app.tmp
+
+for /f "tokens=*" %%a in (app.tmp) do (
+	set foo=%%a
+	if "!foo!" equ "%_search%" set foo=^<value^>%_command%^</value^>
+	echo !foo! >> app.exe.config
+)
+
+del app.tmp
+popd
 pause
