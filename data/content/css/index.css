@@ -1,0 +1,47 @@
+html, body {
+	height: 100%;
+	min-height: 100%;
+	overflow: hidden;
+}
+
+body > .container-fluid {
+	padding-top: 60px;
+	height: 100%;
+	min-height: 100%;
+	overflow: hidden;
+}
+
+.navbar .btn {
+	width: 50px;
+	margin-right: 10px;
+}
+
+.navbar .navbar-left {
+	float: left;
+}
+
+.navbar .navbar-right {
+	float: right;
+}
+
+.container-fluid section {
+	height: 100%;
+	min-height: 100%;
+}
+
+.htmltextcol {
+	padding-top: 10px;
+	overflow: auto;
+}
+
+textarea {
+	height: 100%;
+	min-height: 100%;
+	width: 100%;
+	resize: none;
+	border: none;
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+	font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+}
